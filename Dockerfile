@@ -17,3 +17,4 @@ RUN apt-get --assume-yes install libffi-dev
 RUN apt-get --assume-yes install shared-mime-info
 
 RUN pip install WeasyPrint
+RUN pip install flask

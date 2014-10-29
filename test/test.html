@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>WeasyPrint - Converts HTML + CSS to PDF - WeasyPrint converts HTML/CSS documents to PDF</title>
+    <link href="/css/shared.css" type="text/css" rel="stylesheet" />
+    <link href="/css/style.css" type="text/css" rel="stylesheet" />
+    <link href="/css/img/icon.png" type="image/png" rel="shortcut icon" />
+    <link href="/rss" type="application/rss+xml" rel="alternate" title=" RSS 2.0" />
+    <script src="https://raw.githubusercontent.com/LeaVerou/prefixfree/gh-pages/prefixfree.min.js"></script>
+    
+      <script type="text/javascript">
+        (function() {
+        var d=document,t='script',p=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        p.type='text/javascript';p.async=true;p.src="https://kozea.pystil.org/pystil.js";s.parentNode.insertBefore(p,s);
+        })();
+      </script>
+    
+  </head>
+
+  <body>
+    <header>
+      <h1><a href="/">WeasyPrint</a></h1>
+    </header>
+
+    <nav>
+      
+        <ul>
+          
+          
+          <li>
+            <a>Overview</a>
+            
+          </li>
+        
+      
+        
+          
+          
+          <li>
+            <a href="/news/">News</a>
+            
+          </li>
+        
+      
+        
+          
+          
+          <li>
+            <a href="/docs/">Documentation</a>
+            
+          </li>
+        
+      
+        
+          
+          
+          <li>
+            <a href="/docs/install/">Install</a>
+            
+          </li>
+        
+      
+        
+          
+          
+          <li>
+            <a href="/community/">Community</a>
+            
+          </li>
+        </ul>
+      
+    </nav>
+
+    
+  <section class="page-home">
+    <article><header><h2>WeasyPrint converts HTML/CSS documents to PDF</h2></header><section><p>WeasyPrint is a visual rendering engine for HTML and CSS that can export
+to PDF. It aims to support web standards for printing.
+WeasyPrint is free software made available under a BSD license.</p><p>It is based on various libraries but <em>not</em> on a full rendering engine like
+WebKit or Gecko. The CSS layout engine is written in Python, designed for
+pagination, and meant to be easy to hack on.</p><ul><li>Free software: BSD licensed</li><li>Python 2.6+ or 3.x</li><li>Source code and issue tracker: <a class="reference external" href=https://github.com/Kozea/WeasyPrint>on Github</a></li><li><a class="reference external" href=/docs/>Documentation</a><ul><li><a class="reference external" href=/docs/install/>Install</a></li><li><a class="reference external" href=/docs/features/>Features</a></li></ul></li><li><a class="reference external" href=/community/>Get in touch</a></li></ul><section id=idsample-output><header><h3>Sample output</h3></header><p>As an example, here is the <a class="reference external" href=http://www.w3.org/TR/CSS21/intro.html>introduction chapter</a> of the CSS 2.1 spec
+rendered with WeasyPrint:
+<a class="reference external" href=/samples/CSS21-intro.pdf>CSS21-intro.pdf</a>. It was obtained by running:</p><pre>weasyprint http://www.w3.org/TR/CSS21/intro.html CSS21-intro.pdf -s http://weasyprint.org/samples/CSS21-print.css</pre><p>Here is an extract of <a class="reference external" href=/samples/CSS21-print.css>CSS21-print.css</a>:</p><div class=highlight><pre style="line-height: 125%"><span style="color: #b58900">@page</span> {
+    <span style="color: #cb4b16">margin</span>: <span style="color: #cb4b16">3cm</span> <span style="color: #cb4b16">2cm</span>; <span style="color: #cb4b16">padding-left</span>: <span style="color: #cb4b16">1.5cm</span>;
+    <span style="color: #b58900">@top-center</span> {
+        <span style="color: #cb4b16">content</span>: <span style="color: #2aa198">"Introduction to CSS 2.1"</span>;
+        <span style="color: #cb4b16">vertical-align</span>: <span style="color: #cb4b16">bottom</span>; <span style="color: #cb4b16">border-bottom</span>: <span style="color: #cb4b16">0.5pt</span> <span style="color: #cb4b16">solid</span> }
+    <span style="color: #b58900">@bottom-right</span> {
+        <span style="color: #cb4b16">content</span>: <span style="color: #2aa198">"Page "</span> <span style="color: #cb4b16">counter</span>(<span style="color: #cb4b16">page</span>) <span style="color: #2aa198">" of "</span> <span style="color: #cb4b16">counter</span>(<span style="color: #cb4b16">pages</span>) }
+    <span style="color: #b58900">@left-top</span> {
+        <span style="color: #cb4b16">content</span>: <span style="color: #2aa198">"W3C Recommendation"</span>;
+        <span style="color: #cb4b16">background</span>: <span style="color: #cb4b16">#005a9c</span>; <span style="color: #cb4b16">color</span>: <span style="color: #cb4b16">#fff</span>; <span style="color: #cb4b16">text-align</span>: <span style="color: #cb4b16">right</span>;
+        <span style="color: #cb4b16">transform-origin</span>: <span style="color: #cb4b16">100</span>% <span style="color: #cb4b16">0</span>; <span style="color: #cb4b16">transform</span>: <span style="color: #cb4b16">rotate</span>(<span style="color: #cb4b16">-90deg</span>) }}
+<span style="color: #cb4b16">body</span> { <span style="color: #b58900">text-align</span>: <span style="color: #b58900">justify</span> }
+<span style="color: #cb4b16">h1</span> { -<span style="color: #cb4b16">weasy</span>-<span style="color: #cb4b16">bookmark</span>-<span style="color: #b58900">level</span>: <span style="color: #b58900">none</span> }
+</pre></div><img alt="" class="img-right " src=/samples/acid2-small.png></section><section id=idacid2><header><h3>Acid2</h3></header><p>Starting with version 0.11, WeasyPrint passes the <a class="reference external" href=http://www.webstandards.org/files/acid2/test.html>Acid2</a> test. This test
+was published by the <a class="reference external" href=http://www.webstandards.org/action/acid2/>Web Standards Project</a> as a challenge for web browser
+to get better support for the HTML, CSS and PNG standards. It is made of
+many small elements with various positioning techniques. When all the layout
+rules are implemented correctly, they should add up to the smiling face
+shown on the right.</p><p>Have a look at WeasyPrint’s output <a class="reference external" href=/samples/acid2.pdf>in PDF</a> and
+<a class="reference external" href=/samples/acid2.png>in PNG</a>. The PNG is pixel-perfect, but with PDF
+you may see faint lines or a <a class="reference external" href=https://en.wikipedia.org/wiki/Moir%C3%A9>moiré</a> pattern inside the smiling head.
+This is because the test is made for pixel-based screens with many layers
+of different colors that overlap exactly. Only the top layers are supposed
+to be visible but due to the way that most PDF viewers use anti-aliasing,
+the bottom layers may bleed on the sides.</p></section></section></article>
+  </section>
+
+
+    <footer>
+      <ul>
+        
+          
+          <li>
+            
+              <a href="http://community.kozea.fr/">A Kozea Project</a>
+            
+          </li>
+        
+          
+          <li>
+            
+              <a href="http://validator.w3.org/check?uri=referer">Optimized for Standards</a>
+            
+          </li>
+        
+      </ul>
+    </footer>
+
+    
+      <aside id="ribbon">
+        <a href="https://github.com/Kozea/WeasyPrint">Fork me on GitHub</a>
+      </aside>
+    
+
+  </body>
+
+</html>
