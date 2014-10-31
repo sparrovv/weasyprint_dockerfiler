@@ -18,3 +18,9 @@ RUN apt-get --assume-yes install shared-mime-info
 
 RUN pip install WeasyPrint
 RUN pip install flask
+
+ADD ./app /src
+
+#RUN cd /src; python app.py
+EXPOSE 5000
+CMD ["python", "/src/app.py"]

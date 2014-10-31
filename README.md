@@ -21,6 +21,12 @@ SSH to the an image:
   docker run -i -t weasyprint /bin/bash
 ```
 
+Run container in the background with the running app
+
+```sh
+  docker run -p 49160:5000 -d -t weasyprint
+```
+
 ## TODOs
 
 - [ ] Figure out how to add fonts.
