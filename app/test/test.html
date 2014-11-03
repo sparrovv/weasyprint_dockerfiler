@@ -1,140 +1,552 @@
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="UTF-8"/>
-    <title>WeasyPrint - Converts HTML + CSS to PDF - WeasyPrint converts HTML/CSS documents to PDF</title>
-    <link href="/css/shared.css" type="text/css" rel="stylesheet" />
-    <link href="/css/style.css" type="text/css" rel="stylesheet" />
-    <link href="/css/img/icon.png" type="image/png" rel="shortcut icon" />
-    <link href="/rss" type="application/rss+xml" rel="alternate" title=" RSS 2.0" />
-    <script src="https://raw.githubusercontent.com/LeaVerou/prefixfree/gh-pages/prefixfree.min.js"></script>
-    
-      <script type="text/javascript">
-        (function() {
-        var d=document,t='script',p=d.createElement(t),s=d.getElementsByTagName(t)[0];
-        p.type='text/javascript';p.async=true;p.src="https://kozea.pystil.org/pystil.js";s.parentNode.insertBefore(p,s);
-        })();
-      </script>
-    
+    <title>TEST - TEST</title>
+
+    <style>
+@page {
+    margin: 3cm 2cm;
+    padding-left: 1.5cm;
+    @top-center {
+        content: "Introduction to CSS 2.1";
+        width: 100%;
+        vertical-align: bottom;
+        border-bottom: .5pt solid;
+        margin-bottom: .7cm;
+    }
+    @bottom-right {
+        font-size: 80%;
+        content: "Page " counter(page) " of " counter(pages);
+    }
+    @left-top {
+        content: "W3C Recommendation"; font: .5cm/1.5 Fontin Sans;
+        background: #005a9c; color: #fff; text-align: right;
+        padding-right: 2em; height: 1.5em; width: 10cm;
+        transform-origin: 100% 0;
+        transform: rotate(-90deg);
+    }
+}
+html, body { font: 12pt/1.25 Fontin, serif !important; -weasy-hyphens: auto }
+body { text-align: justify; padding: 0 !important;
+       background: none !important; }
+hr.navbar { display: none }
+h1 { page-break-before: auto !important; -weasy-bookmark-level: none;
+     margin-top: 0 !important; }
+h1, h2, h3, h4 { font-family: arial }
+    </style>
   </head>
 
   <body>
-    <header>
-      <h1><a href="/">WeasyPrint</a></h1>
-    </header>
+<div class="navbar">
+<p><a href="about.html">previous</a> &nbsp;
+<a href="conform.html">next</a> &nbsp;
+<a href="cover.html#minitoc">contents</a> &nbsp;
+<a href="propidx.html">properties</a> &nbsp;
+<a href="indexlist.html">index</a> &nbsp;
+</div>
+<hr class="navbar">
 
-    <nav>
-      
-        <ul>
-          
-          
-          <li>
-            <a>Overview</a>
-            
-          </li>
-        
-      
-        
-          
-          
-          <li>
-            <a href="/news/">News</a>
-            
-          </li>
-        
-      
-        
-          
-          
-          <li>
-            <a href="/docs/">Documentation</a>
-            
-          </li>
-        
-      
-        
-          
-          
-          <li>
-            <a href="/docs/install/">Install</a>
-            
-          </li>
-        
-      
-        
-          
-          
-          <li>
-            <a href="/community/">Community</a>
-            
-          </li>
-        </ul>
-      
-    </nav>
+<img src="data:image/png;base64,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" alt=""/>
+<H1><a name="q0">2 Introduction to CSS&nbsp;2.1</a></H1> 
+<div class="subtoc">
+<p><strong>Contents</strong>
+  <ul class="toc">
+    <li class="tocline2"><a href="intro.html#html-tutorial" class="tocxref">2.1 A brief CSS&nbsp;2.1 tutorial for HTML</a>
+    <li class="tocline2"><a href="intro.html#xml-tutorial" class="tocxref">2.2 A brief CSS&nbsp;2.1 tutorial for XML</a>
+    <li class="tocline2"><a href="intro.html#processing-model" class="tocxref">2.3 The CSS&nbsp;2.1 processing model</a>
+    <ul class="toc">
+      <li class="tocline3"><a href="intro.html#the-canvas" class="tocxref">2.3.1 The canvas</a>
+      <li class="tocline3"><a href="intro.html#addressing" class="tocxref">2.3.2 CSS&nbsp;2.1 addressing model</a>
+    </ul>
+    <li class="tocline2"><a href="intro.html#design-principles" class="tocxref">2.4 CSS design principles</a>
+  </ul>
+</div>
 
-    
-  <section class="page-home">
-    <article><header><h2>WeasyPrint converts HTML/CSS documents to PDF</h2></header><section><p>WeasyPrint is a visual rendering engine for HTML and CSS that can export
-to PDF. It aims to support web standards for printing.
-WeasyPrint is free software made available under a BSD license.</p><p>It is based on various libraries but <em>not</em> on a full rendering engine like
-WebKit or Gecko. The CSS layout engine is written in Python, designed for
-pagination, and meant to be easy to hack on.</p><ul><li>Free software: BSD licensed</li><li>Python 2.6+ or 3.x</li><li>Source code and issue tracker: <a class="reference external" href=https://github.com/Kozea/WeasyPrint>on Github</a></li><li><a class="reference external" href=/docs/>Documentation</a><ul><li><a class="reference external" href=/docs/install/>Install</a></li><li><a class="reference external" href=/docs/features/>Features</a></li></ul></li><li><a class="reference external" href=/community/>Get in touch</a></li></ul><section id=idsample-output><header><h3>Sample output</h3></header><p>As an example, here is the <a class="reference external" href=http://www.w3.org/TR/CSS21/intro.html>introduction chapter</a> of the CSS 2.1 spec
-rendered with WeasyPrint:
-<a class="reference external" href=/samples/CSS21-intro.pdf>CSS21-intro.pdf</a>. It was obtained by running:</p><pre>weasyprint http://www.w3.org/TR/CSS21/intro.html CSS21-intro.pdf -s http://weasyprint.org/samples/CSS21-print.css</pre><p>Here is an extract of <a class="reference external" href=/samples/CSS21-print.css>CSS21-print.css</a>:</p><div class=highlight><pre style="line-height: 125%"><span style="color: #b58900">@page</span> {
-    <span style="color: #cb4b16">margin</span>: <span style="color: #cb4b16">3cm</span> <span style="color: #cb4b16">2cm</span>; <span style="color: #cb4b16">padding-left</span>: <span style="color: #cb4b16">1.5cm</span>;
-    <span style="color: #b58900">@top-center</span> {
-        <span style="color: #cb4b16">content</span>: <span style="color: #2aa198">"Introduction to CSS 2.1"</span>;
-        <span style="color: #cb4b16">vertical-align</span>: <span style="color: #cb4b16">bottom</span>; <span style="color: #cb4b16">border-bottom</span>: <span style="color: #cb4b16">0.5pt</span> <span style="color: #cb4b16">solid</span> }
-    <span style="color: #b58900">@bottom-right</span> {
-        <span style="color: #cb4b16">content</span>: <span style="color: #2aa198">"Page "</span> <span style="color: #cb4b16">counter</span>(<span style="color: #cb4b16">page</span>) <span style="color: #2aa198">" of "</span> <span style="color: #cb4b16">counter</span>(<span style="color: #cb4b16">pages</span>) }
-    <span style="color: #b58900">@left-top</span> {
-        <span style="color: #cb4b16">content</span>: <span style="color: #2aa198">"W3C Recommendation"</span>;
-        <span style="color: #cb4b16">background</span>: <span style="color: #cb4b16">#005a9c</span>; <span style="color: #cb4b16">color</span>: <span style="color: #cb4b16">#fff</span>; <span style="color: #cb4b16">text-align</span>: <span style="color: #cb4b16">right</span>;
-        <span style="color: #cb4b16">transform-origin</span>: <span style="color: #cb4b16">100</span>% <span style="color: #cb4b16">0</span>; <span style="color: #cb4b16">transform</span>: <span style="color: #cb4b16">rotate</span>(<span style="color: #cb4b16">-90deg</span>) }}
-<span style="color: #cb4b16">body</span> { <span style="color: #b58900">text-align</span>: <span style="color: #b58900">justify</span> }
-<span style="color: #cb4b16">h1</span> { -<span style="color: #cb4b16">weasy</span>-<span style="color: #cb4b16">bookmark</span>-<span style="color: #b58900">level</span>: <span style="color: #b58900">none</span> }
-</pre></div><img alt="" class="img-right " src=/samples/acid2-small.png></section><section id=idacid2><header><h3>Acid2</h3></header><p>Starting with version 0.11, WeasyPrint passes the <a class="reference external" href=http://www.webstandards.org/files/acid2/test.html>Acid2</a> test. This test
-was published by the <a class="reference external" href=http://www.webstandards.org/action/acid2/>Web Standards Project</a> as a challenge for web browser
-to get better support for the HTML, CSS and PNG standards. It is made of
-many small elements with various positioning techniques. When all the layout
-rules are implemented correctly, they should add up to the smiling face
-shown on the right.</p><p>Have a look at WeasyPrint’s output <a class="reference external" href=/samples/acid2.pdf>in PDF</a> and
-<a class="reference external" href=/samples/acid2.png>in PNG</a>. The PNG is pixel-perfect, but with PDF
-you may see faint lines or a <a class="reference external" href=https://en.wikipedia.org/wiki/Moir%C3%A9>moiré</a> pattern inside the smiling head.
-This is because the test is made for pixel-based screens with many layers
-of different colors that overlap exactly. Only the top layers are supposed
-to be visible but due to the way that most PDF viewers use anti-aliasing,
-the bottom layers may bleed on the sides.</p></section></section></article>
-  </section>
+<H2>2.1 <a name="html-tutorial">A brief CSS&nbsp;2.1 tutorial for HTML</a></H2>
+
+<p>This section is non-normative.
+
+<P> In this tutorial, we show how easy it can be to design simple
+style sheets. For this tutorial, you will need to know a little HTML
+(see <a href="refs.html#ref-HTML4" rel="biblioentry" class="noxref"><span class="informref">[HTML4]</span></a>) and some basic desktop publishing terminology.
+
+<P>We begin with a small HTML document:</p>
+
+<PRE class="html-example">
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;HTML&gt;
+  &lt;HEAD&gt;
+  &lt;TITLE&gt;Bach's home page&lt;/TITLE&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;H1&gt;Bach's home page&lt;/H1&gt;
+    &lt;P&gt;Johann Sebastian Bach was a prolific composer.
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+
+<P>To set the text color of the H1 elements to red, you can write the
+following CSS rules:</P>
+
+<PRE class="example">
+  h1 { color: red }
+</PRE>
+
+<P>A CSS rule consists of two main parts: <a
+href="selector.html">selector</a> ('h1') and declaration
+('color:&nbsp;red'). In HTML, element names are case-insensitive so
+'h1' works just as well as 'H1'. The declaration has two parts:
+property name ('color') and property value ('red'). While the example above tries to
+influence only one of the properties needed for rendering an HTML
+document, it qualifies as a style sheet on its own. Combined with
+other style sheets (one fundamental feature of CSS is that style
+sheets are combined), the rule will determine the final presentation of the
+document.
+
+<P> The HTML 4 specification defines how style sheet rules may be
+specified for HTML documents: either within the HTML document, or via
+an external style sheet. To put the style sheet into the document, use
+the STYLE element:</p>
+
+<PRE class="html-example">
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;HTML&gt;
+  &lt;HEAD&gt;
+  &lt;TITLE&gt;Bach's home page&lt;/TITLE&gt;
+  &lt;STYLE type="text/css"&gt;
+    h1 { color: red }
+  &lt;/STYLE&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;H1&gt;Bach's home page&lt;/H1&gt;
+    &lt;P&gt;Johann Sebastian Bach was a prolific composer.
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+
+<P> For maximum flexibility, we recommend that authors specify
+external style sheets; they may be changed without modifying the
+source HTML document, and they may be shared among several
+documents. To link to an external style sheet, you can use the LINK
+element:</p>
+
+<PRE class="html-example">
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;HTML&gt;
+  &lt;HEAD&gt;
+  &lt;TITLE&gt;Bach's home page&lt;/TITLE&gt;
+  &lt;LINK rel="stylesheet" href="bach.css" type="text/css"&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;H1&gt;Bach's home page&lt;/H1&gt;
+    &lt;P&gt;Johann Sebastian Bach was a prolific composer.
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+
+<P>The LINK element specifies:</p>
+
+<ul>
+<li>the type of link: to a "stylesheet".
+<li>the location of the style sheet via the "href" attribute. 
+<li>the type of style sheet being linked: "text/css".
+</ul>
+
+<P>To show the close relationship between a style sheet and the
+structured markup, we continue to use the STYLE element in this
+tutorial. Let's add more colors:
+
+<PRE class="html-example">
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;HTML&gt;
+  &lt;HEAD&gt;
+  &lt;TITLE&gt;Bach's home page&lt;/TITLE&gt;
+  &lt;STYLE type="text/css"&gt;
+    body { color: black; background: white }
+    h1 { color: red; background: white }
+  &lt;/STYLE&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;H1&gt;Bach's home page&lt;/H1&gt;
+    &lt;P&gt;Johann Sebastian Bach was a prolific composer.
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+
+<P>The style sheet now contains four rules: the first two set the
+color and background of the BODY element (it's a good idea to set the
+text color and background color together), while the last two
+set the color and the background of the H1 element. Since no color
+has been specified for the P element, it will inherit the color
+from its parent element, namely BODY. The H1 element is also a child
+element of BODY but the second rule overrides the inherited value. In
+CSS there are often such conflicts between different values, and this
+specification describes how to resolve them.
+
+<P>CSS&nbsp;2.1 has more than 90 properties, including <a href="colors.html#propdef-color" class="noxref"><span
+class="propinst-color">'color'</span></a>. Let's look at some of the
+others:
+
+<PRE class="example">
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;HTML&gt;
+  &lt;HEAD&gt;
+  &lt;TITLE&gt;Bach's home page&lt;/TITLE&gt;
+  &lt;STYLE type="text/css"&gt;
+    body { 
+      font-family: "Gill Sans", sans-serif;
+      font-size: 12pt;
+      margin: 3em; 
+    }
+  &lt;/STYLE&gt;
+  &lt;/HEAD&gt;
+  &lt;BODY&gt;
+    &lt;H1&gt;Bach's home page&lt;/H1&gt;
+    &lt;P&gt;Johann Sebastian Bach was a prolific composer.
+  &lt;/BODY&gt;
+&lt;/HTML&gt;
+</PRE>
+
+<P>The first thing to notice is that several declarations are grouped
+within a block enclosed by curly braces ({...}), and separated by
+semicolons, though the last declaration may also be followed by a
+semicolon.
+
+<P>The first declaration on the BODY element sets the font family to
+"Gill Sans". If that font is not available, the user agent (often
+referred to as a "browser") will use the 'sans-serif' font family
+which is one of five generic font families which all users agents
+know. Child elements of BODY will inherit the value of the <a href="fonts.html#propdef-font-family" class="noxref"><span
+class="propinst-font-family">'font-family'</span></a> property.
+
+<P>The second declaration sets the font size of the BODY element to
+12 points. The "point" unit is commonly used in print-based typography
+to indicate font sizes and other length values. It's an example of an
+absolute unit which does not scale relative to the environment. 
+
+<P>The third declaration uses a relative unit which scales with regard
+to its surroundings. The "em" unit refers to the font size of the
+element. In this case the result is that the margins around the BODY
+element are three times wider than the font size.
+
+<H2>2.2 <a name="xml-tutorial">A brief CSS&nbsp;2.1 tutorial for XML</a></H2>
+
+<p>This section is non-normative.
+
+<P>CSS can be used with any structured document format, for example
+with applications of the eXtensible Markup Language <a href="refs.html#ref-XML10" rel="biblioentry" class="noxref"><span class="informref">[XML10]</span></a>. In
+fact, XML depends more on style sheets than HTML, since authors can
+make up their own elements that user agents do not know how to
+display.
+
+<P>Here is a simple XML fragment:
+
+<PRE class="xml-example">
+&lt;ARTICLE&gt;
+  &lt;HEADLINE&gt;Fredrick the Great meets Bach&lt;/HEADLINE&gt;
+  &lt;AUTHOR&gt;Johann Nikolaus Forkel&lt;/AUTHOR&gt;
+  &lt;PARA&gt;
+    One evening, just as he was getting his 
+    &lt;INSTRUMENT&gt;flute&lt;/INSTRUMENT&gt; ready and his
+    musicians were assembled, an officer brought him a list of
+    the strangers who had arrived.
+  &lt;/PARA&gt;
+&lt;/ARTICLE&gt;
+</PRE>
+
+<P>To display this fragment in a document-like fashion, we must first
+declare which elements are inline-level (i.e., do not cause line breaks) and
+which are block-level (i.e., cause line breaks). 
+
+<PRE class="example">
+INSTRUMENT { display: inline }
+ARTICLE, HEADLINE, AUTHOR, PARA { display: block }
+</PRE>
+
+<P>The first rule declares INSTRUMENT to be inline and the second
+rule, with its comma-separated list of selectors, declares all the
+other elements to be block-level. Element names in XML are
+case-sensitive, so a selector written in lowercase (e.g., 'instrument')
+is different from uppercase (e.g., 'INSTRUMENT').
+
+<P>One way of linking a style sheet to an XML document is to use
+a processing instruction:
+
+<PRE class="xml-example">
+&lt;?xml-stylesheet type="text/css" href="bach.css"?&gt;
+&lt;ARTICLE&gt;
+  &lt;HEADLINE&gt;Fredrick the Great meets Bach&lt;/HEADLINE&gt;
+  &lt;AUTHOR&gt;Johann Nikolaus Forkel&lt;/AUTHOR&gt;
+  &lt;PARA&gt;
+    One evening, just as he was getting his 
+    &lt;INSTRUMENT&gt;flute&lt;/INSTRUMENT&gt; ready and his
+    musicians were assembled, an officer brought him a list of
+    the strangers who had arrived.
+  &lt;/PARA&gt;
+&lt;/ARTICLE&gt;
+</PRE>
+
+<P>A visual user agent could format the above example as:
+
+<div class="figure">
+<p><img src="images/bach1.png" alt="Example rendering"><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-bach1" href="images/longdesc/bach1-desc.html" title="Long description for the first Bach/XML formatting example">[D]</A></SPAN>
+</div>
+
+<P>Notice that the word "flute" remains within the paragraph since it
+is the content of the inline element INSTRUMENT.
+
+<P>Still, the text is not formatted the way you would expect. For
+example, the headline font size should be larger than then the rest of
+the text, and you may want to display the author's name in italic:</P>
+
+<PRE class="example">
+INSTRUMENT { display: inline }
+ARTICLE, HEADLINE, AUTHOR, PARA { display: block }
+HEADLINE { font-size: 1.3em }
+AUTHOR { font-style: italic }
+ARTICLE, HEADLINE, AUTHOR, PARA { margin: 0.5em }
+</PRE>
+
+<P>A visual user agent could format the above example as:
+
+<div class="figure">
+<p><img src="images/bach2.png" alt="Example rendering"><SPAN class="dlink">&nbsp;&nbsp;&nbsp;<A name="img-bach2" href="images/longdesc/bach2-desc.html" title="Long description for the second Bach/XML formatting example">[D]</A></SPAN>
+</div>
+
+<P>Adding more rules to the style sheet will allow you to further
+describe the presentation of the document. 
 
 
-    <footer>
-      <ul>
-        
-          
-          <li>
-            
-              <a href="http://community.kozea.fr/">A Kozea Project</a>
-            
-          </li>
-        
-          
-          <li>
-            
-              <a href="http://validator.w3.org/check?uri=referer">Optimized for Standards</a>
-            
-          </li>
-        
-      </ul>
-    </footer>
+<H2>2.3 <a name="processing-model">The CSS&nbsp;2.1 processing model</a></H2>
 
-    
-      <aside id="ribbon">
-        <a href="https://github.com/Kozea/WeasyPrint">Fork me on GitHub</a>
-      </aside>
-    
+<p>This section up to but not including its subsections is
+non-normative.
 
+<P>This section presents one possible model of how user
+agents that support CSS work. This is only a conceptual model; real
+implementations may vary.
+
+<P>In this model, a user agent processes a source
+by going through the following steps:</P>
+
+<ol>
+<li>Parse the source document and create a <a
+href="conform.html#doctree">document tree</a>.</li>
+
+<li>Identify the target <a href="media.html">media type</a>.
+
+<li>Retrieve all style sheets associated with the document that are
+specified for the target <a href="media.html">media type</a>.
+
+<li>Annotate every element of the document tree by assigning a single
+value to every <a href="syndata.html#properties">property</a> that is
+applicable to the target <a href="media.html">media type</a>.
+Properties are assigned values according to the mechanisms described
+in the section on <a href="cascade.html">cascading and
+inheritance</a>. 
+
+<P>Part of the calculation of values depends on the formatting
+algorithm appropriate for the target <a href="media.html">media
+type</a>. For example, if the target medium is the screen, user agents
+apply the <a href="visuren.html">visual formatting model</a>. 
+
+<li>From the annotated document tree, generate a 
+<span class="index-def" title="formatting structure">
+<a name="formatting-structure"><dfn>formatting
+structure</dfn></a></span>.  Often, the formatting structure closely
+resembles the document tree, but it may also differ significantly,
+notably when authors make use of pseudo-elements and generated content.
+First, the formatting structure need not be "tree-shaped" at all -- the
+nature of the structure depends on the implementation.  Second, the
+formatting structure may contain more or less information than the
+document tree. For instance, if an element in the document tree has a
+value of 'none' for the <a href="visuren.html#propdef-display" class="noxref"><span
+class="propinst-display">'display'</span></a> property, that element will
+generate nothing in the formatting structure.  A list element, on the
+other hand, may generate more information in the formatting structure:
+the list element's content and list style information (e.g., a bullet
+image).
+
+<P>Note that the CSS user agent does not alter the document tree
+during this phase. In particular, content generated due to style
+sheets is not fed back to the document language processor (e.g., for
+reparsing).
+
+<li>Transfer the formatting structure to the target medium (e.g., print
+the results, display them on the screen, render them as speech,
+etc.).
+</ol>
+
+<h3>2.3.1 <a name="the-canvas">The canvas</a></h3>
+
+<P>For all media, the term <span class="index-def" title="canvas"> <a
+name="canvas"><dfn>canvas</dfn></a></span> describes "the space where
+the formatting structure is rendered."  The canvas is infinite for each
+dimension of the space, but rendering generally occurs within
+a finite region of the canvas, established by the user agent
+according to the target medium. For instance, user agents rendering
+to a screen generally impose a minimum width and choose an initial
+width based on the dimensions of the <a href="visuren.html#viewport">
+viewport</a>. User agents rendering to a page generally impose
+width and height constraints. Aural user agents may impose limits
+in audio space, but not in time. 
+
+<h3>2.3.2 <a name="addressing">CSS&nbsp;2.1 addressing model</a></h3>
+
+<P> CSS&nbsp;2.1 <a href="selector.html">selectors</a> and properties allow
+style sheets to refer to the following parts of a document
+or user agent:</p>
+
+<ul>
+<li>Elements in the document tree and certain relationships between
+them (see the section on <a href="selector.html">selectors</a>).
+
+<li>Attributes of elements in the document tree, and values of those
+attributes (see the section on <a
+href="selector.html#attribute-selectors">attribute selectors</a>).
+
+<li>Some parts of element content (see the <a
+href="selector.html#first-line">:first-line</a> and <a
+href="selector.html#first-letter">:first-letter</a> pseudo-elements).
+
+<li>Elements of the document tree when they are in a certain state
+(see the section on <a href="selector.html#pseudo-classes">pseudo-classes</a>).
+
+<li>Some aspects of the <a href="#canvas">canvas</a> where
+the document will be rendered.
+
+<li>Some system information (see the section on <a href="ui.html">user
+interface</a>).
+</ul>
+
+<H2>2.4 <a name="design-principles">CSS design principles</a></H2>
+
+<p>This section is non-normative.
+
+<P>CSS&nbsp;2.1, as CSS2 and CSS1 before it, is based on a set of design principles:</p>
+
+<UL>
+
+<LI>
+<P><STRONG>Forward and backward compatibility</STRONG>. CSS&nbsp;2.1 user
+agents will be able to understand CSS1 style sheets. CSS1 user agents
+will be able to read CSS&nbsp;2.1 style sheets and discard parts they do not
+understand. Also, user agents with no CSS support will be able to
+display style-enhanced documents. Of course, the stylistic
+enhancements made possible by CSS will not be rendered, but all
+content will be presented.</P>
+</LI>
+
+<LI>
+<P><STRONG>Complementary to structured documents</STRONG>. Style
+sheets complement structured documents (e.g., HTML and XML
+applications), providing
+stylistic information for the marked-up text. It should be easy to
+change the style sheet with little or no impact on the markup.</P>
+</LI>
+
+<LI>
+<P><STRONG>Vendor, platform, and device independence</STRONG>. Style
+sheets enable documents to remain vendor, platform, and device
+independent. Style sheets themselves are also vendor and platform
+independent, but CSS&nbsp;2.1 allows you to target a style sheet for a group of
+devices (e.g., printers).</P>
+</LI>
+
+<LI>
+<P><STRONG>Maintainability</STRONG>. By pointing to style sheets from
+documents, webmasters can simplify site maintenance and retain
+consistent look and feel throughout the site. For example, if
+the organization's background color changes, only one file needs to be
+changed.</P>
+</LI>
+
+<LI>
+<P><STRONG>Simplicity</STRONG>. CSS is a simple style language which
+is human readable and writable. The CSS properties are kept
+independent of each other to the largest extent possible and there is
+generally only one way to achieve a certain effect.</P>
+</LI>
+
+<LI> 
+<P><STRONG>Network performance</STRONG>. CSS provides for compact
+encodings of how to present content. Compared to images or audio
+files, which are often used by authors to achieve certain rendering
+effects, style sheets most often decrease the content size. Also,
+fewer network connections have to be opened which further increases
+network performance.</P> </LI>
+
+<LI>
+<P><STRONG>Flexibility</STRONG>. CSS can be applied to content in
+several ways. The key feature is the ability to cascade style
+information specified in the default (user agent) style sheet, user
+style sheets, linked style sheets, the document head, and in
+attributes for the elements forming the document body.</P>
+</LI>
+
+<LI>
+<P><STRONG>Richness</STRONG>. Providing authors with a rich set of
+rendering effects increases the richness of the Web as a medium of
+expression. Designers have been longing for functionality commonly
+found in desktop publishing and slide-show applications. Some of
+the requested rendering effects conflict with device independence, but
+CSS&nbsp;2.1 goes a long way toward granting designers their requests.</P>
+</LI>
+
+<LI>
+<P><STRONG>Alternative language bindings</STRONG>. The set of CSS
+properties described in this specification form a consistent
+formatting model for visual and aural presentations. This formatting
+model can be accessed through the CSS language, but bindings to other
+languages are also possible. For example, a JavaScript program may
+dynamically change the value of a certain element's <a href="colors.html#propdef-color" class="noxref"><span
+class="propinst-color">'color'</span></a> property.</P>
+</LI>
+
+<LI>
+<P><STRONG>Accessibility</STRONG>. Several CSS 
+features will make the Web more accessible 
+to users with disabilities:</p>
+
+<UL>
+
+<LI>Properties to control font appearance allow authors
+to eliminate inaccessible bit-mapped text images. 
+
+<li>Positioning properties allow authors to eliminate
+mark-up tricks (e.g., invisible images) to force layout.
+
+<LI>The semantics of
+<tt>!important</tt> rules mean that users with 
+particular presentation requirements
+can override the author's style sheets.
+
+<li>The 'inherit' value for all properties
+improves cascading generality and allows for
+easier and more consistent style tuning.
+
+<li>Improved media support, including media groups and the 
+braille, embossed, and tty media types, will allow users and
+authors to tailor pages to those devices.
+
+</UL>
+
+<div class="note"><P> <em><strong>Note.</strong> For more information
+about designing accessible documents using CSS and HTML, see [[-WCAG20]].</em>
+</div>
+</UL>
+
+
+<hr class="navbar">
+
+<div class="navbar">
+<p><a href="about.html">previous</a> &nbsp;
+<a href="conform.html">next</a> &nbsp;
+<a href="cover.html#minitoc">contents</a> &nbsp;
+<a href="propidx.html">properties</a> &nbsp;
+<a href="indexlist.html">index</a> &nbsp;
+</div>
   </body>
 
 </html>
